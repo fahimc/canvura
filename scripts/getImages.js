@@ -31,7 +31,7 @@ async function getImageBySearch(index) {
                 count--;
                 file.close();
                 console.log(`Image downloaded as ${hit.id}`);
-                imageJson.push({ _id: hit.id, img: `public/assets/background-images/${fileName}` });
+                imageJson.push({ _id: hit.id, img: `/assets/background-images/${fileName}` });
                 if (count <= 0) writeFileSync('src/generated/images.json', JSON.stringify(imageJson, null, 2), 'utf-8');
             });
         }).on('error', (err) => {
