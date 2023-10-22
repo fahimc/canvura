@@ -23,7 +23,7 @@ package-lock.json
 .env.test.local
 .env.production.local
 .devcontainer
-generated
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
