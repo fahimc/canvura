@@ -1,0 +1,98 @@
+[
+    {
+        "_id": "64c0a0cef3426c5a918333f7",
+        "img": "/assets/text/text1.png",
+        "data": {
+            "rootId": "b2f48e0d-ea04-431e-b891-913a251a6727",
+            "layers": {
+                "b2f48e0d-ea04-431e-b891-913a251a6727": {
+                    "type": { "resolvedName": "TextLayer" },
+                    "props": {
+                        "text": "<p style=\"text-align: center;font-family: Open Sans;font-size: 50px;color: rgb(0, 0, 0);line-height: 1.4;letter-spacing: NaNem;\"><span style=\"color: rgb(0, 0, 0);\">enjoy</span></p>",
+                        "position": { "x": 385, "y": 336 },
+                        "boxSize": { "width": 760.5333333333335, "height": 70, "x": 385, "y": 336 },
+                        "scale": 1,
+                        "rotate": 0,
+                        "fonts": [
+                            {
+                                "name": "Open Sans",
+                                "fonts": [
+                                    {
+                                        "style": "Bold",
+                                        "urls": ["/assets/fonts/opensans/OpenSans-Bold.ttf"]
+                                    },
+                                    {
+                                        "style": "Bold_Italic",
+                                        "urls": ["/assets/fonts/opensans/OpenSans-BoldItalic.ttf"]
+                                    },
+
+                                    {
+                                        "style": "Italic",
+                                        "urls": ["/assets/fonts/opensans/OpenSans-Italic.ttf"]
+                                    },
+                                    {
+                                        "urls": ["/assets/fonts/opensans/OpenSans-Regular.ttf"]
+                                    }
+                                ]
+                            }
+                        ],
+                        "colors": ["rgb(255, 253, 71)", "rgb(0, 0, 0)"],
+                        "fontSizes": [50],
+                        "effect": null
+                    },
+                    "locked": false,
+                    "child": [],
+                    "parent": "ROOT"
+                }
+            }
+        }
+    },
+    {
+        "_id": "64c0a0cef3426c5a918333f7",
+        "img": "/assets/text/headingtext1.png",
+        "data": {
+            "rootId": "b2f48e0d-ea04-431e-b891-913a251a6727",
+            "layers": {
+                "b2f48e0d-ea04-431e-b891-913a251a6727": {
+                    "type": { "resolvedName": "TextLayer" },
+                    "props": {
+                        "text": "<p style=\"text-align: center;font-family: Open Sans;font-weight:bold;font-size: 150px;color: rgb(0, 0, 0);line-height: 1.4;letter-spacing: NaNem;\"><span style=\"color: rgb(0, 0, 0);\">Heading</span></p>",
+                        "position": { "x": 385, "y": 336 },
+                        "boxSize": { "width": 760.5333333333335, "height": 200, "x": 385, "y": 336 },
+                        "scale": 1,
+                        "rotate": 0,
+                        "fonts": [
+                            {
+                                "name": "Open Sans",
+                                "fonts": [
+                                    {
+                                        "style": "Bold",
+                                        "urls": ["/assets/fonts/opensans/OpenSans-Bold.ttf"]
+                                    },
+                                    {
+                                        "style": "Bold_Italic",
+                                        "urls": ["/assets/fonts/opensans/OpenSans-BoldItalic.ttf"]
+                                    },
+
+                                    {
+                                        "style": "Italic",
+                                        "urls": ["/assets/fonts/opensans/OpenSans-Italic.ttf"]
+                                    },
+                                    {
+                                        "urls": ["/assets/fonts/opensans/OpenSans-Regular.ttf"]
+                                    }
+                                ]
+                            }
+                        ],
+                        "colors": ["rgb(255, 253, 71)", "rgb(0, 0, 0)"],
+                        "fontSizes": [150],
+                        "effect": null
+                    },
+                    "locked": false,
+                    "child": [],
+                    "parent": "ROOT"
+                }
+            }
+        }
+    }
+]
