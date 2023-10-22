@@ -4,6 +4,8 @@ import axios from 'axios';
 import XIcon from '@duyank/icons/regular/X';
 import { isMobile } from 'react-device-detect';
 import { useEditor } from '@lidojs/editor';
+import { downloadObjectAsJson } from '../../utils/download';
+import frameData from '../../frames.json';
 interface Frame {
     img: string;
     clipPath: string;
@@ -12,13 +14,9 @@ interface Frame {
 }
 const FrameContent: FC<{ onClose: () => void }> = ({ onClose }) => {
     const [frames, setFrames] = useState<Frame[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const { actions } = useEditor();
-    useAsync(async () => {
-        const response = await axios.get<Frame[]>('/frames');
-        setFrames(response.data);
-        setIsLoading(false);
-    }, []);
+
     const addFrame = async (data: Frame) => {
         actions.addFrameLayer(data, data.clipPath);
         if (isMobile) {
@@ -84,7 +82,7 @@ const FrameContent: FC<{ onClose: () => void }> = ({ onClose }) => {
                     }}
                 >
                     {isLoading && <div>Loading...</div>}
-                    {frames.map((item, index) => (
+                    {frameData.map((item, index) => (
                         <div
                             key={index}
                             css={{ cursor: 'pointer', position: 'relative' }}

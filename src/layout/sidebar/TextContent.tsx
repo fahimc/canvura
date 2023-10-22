@@ -6,7 +6,6 @@ import XIcon from '@duyank/icons/regular/X';
 import { isMobile } from 'react-device-detect';
 import { useEditor } from '@lidojs/editor';
 import { LayerId, SerializedLayers } from '@lidojs/core';
-import { downloadObjectAsJson } from '../../utils/download';
 import textPresets from '../../textContent.json';
 
 interface Text {
@@ -16,13 +15,8 @@ interface Text {
 const TextContent: FC<{ onClose: () => void }> = ({ onClose }) => {
     const { actions } = useEditor();
     const [texts, setTexts] = useState<Text[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
-    useAsync(async () => {
-        const response = await axios.get<Text[]>('/texts');
-        setTexts(response.data);
-        setIsLoading(false);
-    }, []);
     const handleAddText = (data: { rootId: LayerId; layers: SerializedLayers }) => {
         console.log(data);
         actions.addLayerTree(data);
