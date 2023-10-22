@@ -1,25 +1,19 @@
 import React, { FC, useState } from 'react';
-import { useAsync } from 'react-use';
-import axios from 'axios';
 import XIcon from '@duyank/icons/regular/X';
 import { isMobile } from 'react-device-detect';
 import { useEditor } from '@lidojs/editor';
 import { SerializedPage } from '@lidojs/core';
+import templateContentJson from '../../templates.json';
 interface Template {
     img: string;
     data: string;
 }
 const TemplateContent: FC<{ onClose: () => void }> = ({ onClose }) => {
     const [templates, setTemplates] = useState<Template[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const { actions, activePage } = useEditor((state) => ({
         activePage: state.activePage,
     }));
-    useAsync(async () => {
-        const response = await axios.get<Template[]>('/templates');
-        setTemplates(response.data);
-        setIsLoading(false);
-    }, []);
     const addPage = async (data: SerializedPage) => {
         actions.setPage(activePage, data);
         if (isMobile) {
@@ -85,7 +79,7 @@ const TemplateContent: FC<{ onClose: () => void }> = ({ onClose }) => {
                     }}
                 >
                     {isLoading && <div>Loading...</div>}
-                    {templates.map((item, index) => (
+                    {templateContentJson.map((item, index) => (
                         <div key={index} css={{ cursor: 'pointer' }} onClick={() => addPage(JSON.parse(item.data))}>
                             <img src={item.img} loading="lazy" />
                         </div>

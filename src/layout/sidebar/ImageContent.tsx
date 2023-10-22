@@ -5,14 +5,12 @@ import { getThumbnail } from '../../utils/thumbnail';
 import XIcon from '@duyank/icons/regular/X';
 import { isMobile } from 'react-device-detect';
 import { useEditor } from '@lidojs/editor';
+import imageJson from '../../generated/images.json';
+
 const ImageContent: FC<{ onClose: () => void }> = ({ onClose }) => {
     const [images, setImages] = useState<{ img: string }[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-    useAsync(async () => {
-        const response = await axios.get<{ img: string }[]>('/images');
-        setImages(response.data);
-        setIsLoading(false);
-    }, []);
+    const [isLoading, setIsLoading] = useState(false);
+
     const { actions } = useEditor();
     const addImage = async (thumb: string, url: string) => {
         const img = new Image();
@@ -88,15 +86,21 @@ const ImageContent: FC<{ onClose: () => void }> = ({ onClose }) => {
                     }}
                 >
                     {isLoading && <div>Loading...</div>}
-                    {images.map((item, idx) => (
+
+                    {imageJson.map((item, idx) => (
                         <div
                             key={idx}
-                            css={{ cursor: 'pointer', position: 'relative', paddingBottom: '100%', width: '100%' }}
+                            css={{
+                                cursor: 'pointer',
+                                position: 'relative',
+                                paddingBottom: '100%',
+                                width: '100%',
+                                height: '200px',
+                            }}
                             onClick={() => addImage(getThumbnail(item.img), item.img)}
                         >
                             <img
                                 src={getThumbnail(item.img)}
-                                loading="lazy"
                                 css={{
                                     position: 'absolute',
                                     top: 0,
